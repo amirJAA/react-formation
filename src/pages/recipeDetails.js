@@ -30,11 +30,11 @@ export default function RecipeDetail() {
       });
   }, [id]);
 
-  // Supprimer la recette
+
   const handleDelete = () => {
     axios.delete(`https://localhost:7149/recipes/${id}`)
       .then(() => {
-        navigate("/"); // Retour à la liste après suppression
+        navigate("/"); 
       })
       .catch(error => {
         console.error("Erreur lors de la suppression de la recette :", error);
@@ -91,7 +91,6 @@ export default function RecipeDetail() {
             ))}
           </ul>
           
-          {/* Boutons Modifier & Supprimer */}
           <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
             <Button 
               variant="contained" 

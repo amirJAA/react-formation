@@ -1,6 +1,6 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-// Slice pour gérer toutes les recettes
+
 const recipesSlice = createSlice({
   name: "recipes",
   initialState: [],
@@ -17,7 +17,7 @@ const recipesSlice = createSlice({
   },
 });
 
-// Slice pour gérer une recette en cours (celle que tu crées/édites)
+
 const currentRecipeSlice = createSlice({
   name: "currentRecipe",
   initialState: {

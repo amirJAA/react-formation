@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { setRecipes } from "../store/store";
 
 export default function RecipeList() {
-  const recipes = useSelector((state) => state.recipes); 
-  const dispatch = useDispatch(); 
+  const recipes = useSelector((state) => state.recipes);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://localhost:7149/recipes") 
+    axios.get("https://localhost:7149/recipes")
       .then(response => {
-        dispatch(setRecipes(response.data)); 
+        dispatch(setRecipes(response.data));
       })
       .catch(error => {
         console.error("Erreur lors de la récupération des recettes :", error);
@@ -23,15 +23,15 @@ export default function RecipeList() {
   return (
     <Container maxWidth="sm" sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom>Liste des Recettes</Typography>
-      
+
       {recipes.length === 0 ? (
         <Typography variant="h6" color="textSecondary">Aucune recette disponible.</Typography>
       ) : (
         <List>
           {recipes.map((recipe) => (
-            <ListItem 
-              key={recipe.id} 
-              button 
+            <ListItem
+              key={recipe.id}
+              component="button"  
               onClick={() => navigate(`/recipe/${recipe.id}`)}
               sx={{ mb: 1, bgcolor: "#f5f5f5", borderRadius: 2 }}
             >
